@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="restful@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="restful">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="bjyadmin"/>
+    <schema id="4" parent="1" name="book"/>
+    <schema id="5" parent="1" name="demo"/>
+    <schema id="6" parent="1" name="dwdmlos"/>
+    <schema id="7" parent="1" name="geek"/>
+    <schema id="8" parent="1" name="information_schema"/>
+    <schema id="9" parent="1" name="malls"/>
+    <schema id="10" parent="1" name="mydb"/>
+    <schema id="11" parent="1" name="mysql"/>
+    <schema id="12" parent="1" name="p2p"/>
+    <schema id="13" parent="1" name="page"/>
+    <schema id="14" parent="1" name="performance_schema"/>
+    <schema id="15" parent="1" name="pop"/>
+    <schema id="16" parent="1" name="sys"/>
+    <schema id="17" parent="1" name="test"/>
+    <schema id="18" parent="1" name="tp5"/>
+    <schema id="19" parent="1" name="tpadmin"/>
+    <schema id="20" parent="1" name="zyos"/>
+    <table id="21" parent="2" name="article"/>
+    <table id="22" parent="2" name="user"/>
+    <column id="23" parent="21" name="articleId">
+      <Position>1</Position>
+      <Comment>文章ID</Comment>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="24" parent="21" name="title">
+      <Position>2</Position>
+      <Comment>标题</Comment>
+      <DataType>varchar(40)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="25" parent="21" name="createdAt">
+      <Position>3</Position>
+      <Comment>发表时间</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="26" parent="21" name="content">
+      <Position>4</Position>
+      <Comment>文章内容</Comment>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="27" parent="21" name="userId">
+      <Position>5</Position>
+      <Comment>用户ID</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="28" parent="21" name="createdAt">
+      <ColNames>createdAt</ColNames>
+    </index>
+    <index id="29" parent="21" name="fk_article_user_idx">
+      <ColNames>userId</ColNames>
+    </index>
+    <index id="30" parent="21" name="title">
+      <ColNames>title</ColNames>
+    </index>
+    <key id="31" parent="21" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>articleId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="32" parent="21" name="fk_article_user">
+      <ColNames>userId</ColNames>
+      <RefSchemaName>restful</RefSchemaName>
+      <RefTableName>user</RefTableName>
+      <RefColNames>userId</RefColNames>
+    </foreign-key>
+    <column id="33" parent="22" name="userId">
+      <Position>1</Position>
+      <Comment>用户ID</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="34" parent="22" name="username">
+      <Position>2</Position>
+      <Comment>用户名</Comment>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="35" parent="22" name="password">
+      <Position>3</Position>
+      <Comment>密码</Comment>
+      <DataType>char(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="36" parent="22" name="createdAt">
+      <Position>4</Position>
+      <Comment>注册时间</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="37" parent="22" name="createdAt">
+      <ColNames>createdAt</ColNames>
+    </index>
+    <index id="38" parent="22" name="username">
+      <ColNames>username</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="39" parent="22" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>userId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="40" parent="22" name="username">
+      <ColNames>username</ColNames>
+      <UnderlyingIndexName>username</UnderlyingIndexName>
+    </key>
+  </database-model>
+</dataSource>
